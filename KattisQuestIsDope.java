@@ -4,7 +4,7 @@ import java.io.*;
 public class LoveCatsForever{
 
 	public static void main(String args[]) throws IOException{
-		InputStreamReader sr = new InputStreamReader(System.in);
+	InputStreamReader sr = new InputStreamReader(System.in);
         BufferedReader sc = new BufferedReader(new InputStreamReader(System.in));
         PrintWriter writer = new PrintWriter(System.out);
 
