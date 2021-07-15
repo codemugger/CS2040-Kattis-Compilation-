@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*; 
 
-public class LoveCatsForever{
+public class KattisQuestIsDope{
 
 	public static void main(String args[]) throws IOException{
 	InputStreamReader sr = new InputStreamReader(System.in);
