@@ -1,0 +1,81 @@
+Ten Kinds Of People Pseudocode by Anson 
+Created on 24 jul 2021, 1617H 
+
+import java.util.*;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.io.BufferedReader;
+import java.io.BufferedOutputStream;
+import java.io.IOException;
+
+^^ don't import everything from java.io 
+^^ reduce memory and time needed 
+
+
+1. Get number of rows and number of columns 
+
+2. Create a territoryImage tracker, int[][] territoryTrackerImage = new int[rows][cols]; 
+
+3. initialise a territory id, let int terrtoryid = 10; 
+
+4. for i in range(total number of rows):
+	read Line from user, store into string arr 
+	for j in range(total number of cols):
+		territoryTrackerImage[i][j] = int(user's input) // convert to int 
+
+5. get number of queries from user 
+
+6. use stringbuffer to store final output. Stringbuffer finalOutput = new StringBuffer(""); 
+
+7. Create hashmap of integer, integer types to associate each territorial id with the type of people living there
+i.e binary == 0 || decimal == 1. so which one? 
+
+8. for i in range(total rows):
+	for j in range(total cols):
+		if territoryTrackerImage[i][j] < 10 // i.e not visited 
+			get the identity from territoryTrackerImage. so is it 0 or 1?; 
+			call DFS/BFS; 
+			Associate territory id with identity with hashmap; 
+			increment the territory id by 1 so that all territories are unique;
+
+9. while the number of queries is not yet zero: 
+	get the origin and destinations rows and cols,
+	might need to -1 from each rows and cols since start from 1 instead of zero for the user's input 
+	
+	Using territory image tracker to check the following:
+	if they are not even in the same territory (i.e. not same number) 
+	just append neither to the string buffer, add a line "\n" also 
+	continue; 
+
+	if they belong to the same territory:
+	we check if the territory is binary or decimal using our hashmap.get() function 
+		if hashmap.get(territoryid) == 0, it is binary so append binary and rmb to add a line 
+		else /* it is 1, decimal,i.e. */ , so append decimal and remeber to add a line 
+
+10. print out your contents and flush if you are using io readers 
+
+
+
+DFS RECURSION METHOD: 
+
+def DFS(row,col,identity,territoryid,territoryimage):
+	
+	set territoryimage[row][col] to the territoryid // mark territory as visited in another way 
+
+	// we know that those territory < 10 means not visited yet. 
+	
+	get the maximum possible rows and maximum possible cols 
+
+	create 4 booleans to see if can shift up down left right directions 
+	
+	
+	// we check up direction first 
+	if can shift up and terrtoryimage[row-1][col] < 10 and terrtoryimage[row-1][col] == identity(binary is 0 or decimal is 1):	
+		DFS(row-1,col,identity,territoryid,territoryimage); 
+
+ 	// repeat for down left and right directions to call recursion if conditions met 
+	
+	
+
+		
